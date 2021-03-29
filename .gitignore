@@ -1,0 +1,4 @@
+src/.idea/*
+*.o
+/src/cmake-build-debug/*
+src/scripts/__pycache__/*
