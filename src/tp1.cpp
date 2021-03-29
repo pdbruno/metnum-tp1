@@ -35,10 +35,10 @@ int main (int argc, char *argv[]) {
 
   switch (mode) {
     case 0:
-      r = cmm();
+      r = cmm(T, P, inputFile);
       break;
     case 1:
-      r = wp();
+      r = wp(T, P, inputFile);
       break;
   }
 
