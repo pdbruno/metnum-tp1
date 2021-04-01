@@ -34,7 +34,7 @@ X = np.linalg.solve(C, B)
 print(C)
 print(B)
 print('=== SOLUTION ===')
-print(X)
+print(np.sort(X, axis=0))
 
 """ 
 /****************************************************************
