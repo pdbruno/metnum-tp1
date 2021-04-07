@@ -31,6 +31,8 @@ with open(dataset, 'r') as read_obj:
 
 X = np.linalg.solve(C, B)
 
+
+np.set_printoptions(formatter={'float': lambda x: "{0:0.6f}".format(x)})
 print(C)
 print(B)
 print('=== SOLUTION ===')
