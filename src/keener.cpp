@@ -3,6 +3,7 @@
 vector<double> keener(uint T, uint P, ifstream &inputFile){
     vector<vector<double>> K(T, vector<double>(T,0)); //keener matrix
     vector<double> rd(T,0);// vector r derecho
+    vector<double> rank(T,0);// vector r izquierdo
     vector<vector<double>> S(T, vector<double>(T,0)); // matriz de puntos anotados por i contra j
     vector<vector<bool>> J(T, vector<bool>(T, false)); // Jij=true si i y j jugaron
 
@@ -34,8 +35,10 @@ vector<double> keener(uint T, uint P, ifstream &inputFile){
             K[i][j] = h(   g(   S[i][j], S[j][i]   ), J[i][j]   );
         }
     }
-    
 
+    //falta: encontrar lambda -> encontrar rd -> resolver K*rank = lambda*rd
+    
+    return rank;
 
 }
 
