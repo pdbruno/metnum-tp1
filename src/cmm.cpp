@@ -20,7 +20,7 @@ vector<double> cmm(uint T, uint P, ifstream &inputFile) {
     getline(inputFile, line, '\n');     
     while (getline(inputFile, line,'\n')) {
         stringstream ss(line);
-        int date, winner, wpoints, loser, lpoints;
+        double date, winner, wpoints, loser, lpoints;
 
         char c;
 
@@ -50,6 +50,12 @@ vector<double> cmm(uint T, uint P, ifstream &inputFile) {
 }
 
 void eliminacion_gaussiana(vector<vector<double>>& A, vector<double>& B){
+    
+    /*for(int i = 1; i < A.size(); i++){
+        step(i, A);
+    }*/
+    
+    
     for (int i = 0; i < A.size(); i++) {
         for(int j = i + 1; j < A.size(); j++) {
             double m = A[j][i] / A[i][i];
@@ -77,4 +83,31 @@ void producto_matricial(vector<vector<double>>& A, vector<double>& x, vector<dou
             b[i] = A[i][j] * x[j];
         }
     }
+}
+
+
+void step(short paso, vector<vector<double>>& mat){
+    vector<double> row_i = mat[paso-1];
+    double m_Denom = row_i[paso-1];
+
+    for(int i = paso + 1; i< mat.size() ; i++){
+        mat[i] = subRows(mat[i], row_i, mat[i][paso]/m_Denom);
+    }
+
+
+
+}
+
+vector<double> multRow(double cohef, vector<double> row){
+    for(int i = 0 ; i < row.size(); i++){
+        row[i] = row[i]*cohef;
+    }
+    return row;
+}
+vector<double> subRows(vector<double> row_l, vector<double> row_r, double cohef_r){
+    // row_l = row_l- cohef_r * row_r
+    for(int i = 0 ; i < row_l.size() ; i++){
+        row_l[i] -= cohef_r * row_r[i];
+    }
+    return row_l;
 }
