@@ -34,6 +34,17 @@ vector<double> cmm(uint T, uint P, ifstream &inputFile) {
         B2[winner] = B[winner] = B[winner] + 0.5;
         B2[loser] = B[loser] = B[loser] - 0.5;
     }
+
+    for (int i = 0; i < B.size(); i++)
+    {
+        B[i]++;
+        B2[i]++;
+    }
+    
+    cout<<"La matriz C es: \n";
+    print_matrix(C);
+    cout<<"El vector b es: \n";
+    print_vector(B);
     
     vector<double> r(T, 0);
     eliminacion_gaussiana(C, B);
@@ -54,7 +65,7 @@ void eliminacion_gaussiana(vector<vector<double>>& A, vector<double>& B){
     /*for(int i = 1; i < A.size(); i++){
         step(i, A);
     }*/
-    
+    // --version modularizada de EG--
     
     for (int i = 0; i < A.size(); i++) {
         for(int j = i + 1; j < A.size(); j++) {
@@ -85,7 +96,7 @@ void producto_matricial(vector<vector<double>>& A, vector<double>& x, vector<dou
     }
 }
 
-
+/*
 void step(short paso, vector<vector<double>>& mat){
     vector<double> row_i = mat[paso-1];
     double m_Denom = row_i[paso-1];
@@ -111,3 +122,4 @@ vector<double> subRows(vector<double> row_l, vector<double> row_r, double cohef_
     }
     return row_l;
 }
+*/
