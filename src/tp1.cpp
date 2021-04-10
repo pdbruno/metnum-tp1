@@ -8,9 +8,9 @@ int main (int argc, char *argv[]) {
     return 1;
   }
     // parametros por linea de comando
-  uint mode = atoi(argv[1]);
-  char *input = argv[2];
-  char *output = argv[3];
+  uint mode = atoi(argv[3]);
+  char *input = argv[1];
+  char *output = argv[2];
 
   if (mode > 2) {
     printf("Metodo invalido");
