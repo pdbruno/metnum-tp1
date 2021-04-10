@@ -5,7 +5,8 @@ import numpy as np
 from csv import reader
 
 DATASET_PATH = 1
-dataset = sys.argv[DATASET_PATH]
+#dataset = sys.argv["/home/msorondo/Desktop/Metodos Numericos/metnum-tp1/tests/test1.in"]
+dataset = "/home/msorondo/Desktop/Metodos Numericos/metnum-tp1/tests/test1.in"
 C = None
 B = None
 
@@ -32,11 +33,12 @@ with open(dataset, 'r') as read_obj:
 X = np.linalg.solve(C, B)
 
 
-np.set_printoptions(formatter={'float': lambda x: "{0:0.6f}".format(x)})
-print(C)
-print(B)
+#np.set_printoptions(formatter={'float': lambda x: "{0:0.6f}".format(x)})
+#print(C)
+#print(B)
 print('=== SOLUTION ===')
-print(np.sort(X, axis=0))
+print(X)
+#print(np.sort(X, axis=0))
 
 """ 
 /****************************************************************
