@@ -11,15 +11,22 @@ vector<double> wp(uint T, uint P, ifstream &inputFile) {
 
     while (getline(inputFile, line,'\n')) {
         stringstream ss(line);
-        int date, winner, wpoints, loser, lpoints;
-        char c;
+        int date, team1, points1, team2, points2, winner, loser;
 
-        ss >> date >> winner >> wpoints >> loser >> lpoints;
-        int widx = winner - 1;
-        int lidx = loser - 1;
-        W[widx-1] = W[widx-1] + 1; 
-        Q[widx-1] = Q[widx-1] + 1; 
-        Q[lidx-1] = Q[lidx-1] + 1; 
+        ss >> date >> team1 >> points1 >> team2 >> points2;
+
+        if (points1 > points2) {
+            winner = team1-1;
+            loser = team2-1;
+        }
+        else {
+            winner = team2-1;
+            loser = team1-1;
+        }
+
+        W[winner] = W[winner] + 1; 
+        Q[winner] = Q[winner] + 1; 
+        Q[loser] = Q[loser] + 1; 
     }
 
     vector<double> r(T, 0);

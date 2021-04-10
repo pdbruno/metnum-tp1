@@ -39,6 +39,8 @@ int main (int argc, char *argv[]) {
       break;
     case 1:
       r = wp(T, P, inputFile);
+    case 2:
+      r = keener(T, P, inputFile);
       break;
   }
   
