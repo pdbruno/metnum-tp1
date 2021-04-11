@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <math.h>
-using namespace std;
+#include "utils.h"
 
 vector<double> keener(uint T, uint P, ifstream &inputFile);
 
