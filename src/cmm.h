@@ -15,3 +15,5 @@ void test_BS();
 void step(short paso, vector<vector<double>>& mat);
 vector<double> multRow(double cohef, vector<double> row);
 vector<double> subRows(vector<double> row_l, vector<double> row_r, double cohef_r);
+double sumaLoca(const vector<double> &A, vector<double> &x,  int start, int end);
+double kahanSum(const vector<double> &A, vector<double> &x);

@@ -1,7 +1,7 @@
 using namespace std;
 
 #include "utils.h"
-
+#include <iomanip>
 /**
  * Imprime en consola una matriz y un vector
  *
@@ -51,6 +51,6 @@ void print_vector (vector<double> &v){
  */
 void write_vector (vector<double> &v, ofstream &output){
     for (uint i = 0; i < v.size(); i++){
-        output << v[i] << "\n";
+        output << setprecision(14) << v[i] << "\n";
     }
 }

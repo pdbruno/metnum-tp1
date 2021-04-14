@@ -47,17 +47,11 @@ vector<double> keener(uint T, uint P, ifstream &inputFile){
         // recordar que los Sij y los Sji son la suma de los goles a lo largo de los partidos
 
     }
-    cout<<"----------------Matriz de Scores: --------------\n";
-    print_matrix(S);
-    cout<<"---------------------------------\n";
     for(int i = 0 ; i < T ; i++){
         for(int j = 0 ; j< T ; j++){
             K[i][j] = h(   g(   S[i][j], S[j][i]   ), J[i][j]   );
         }
     }
-    cout<<"----------------Matriz Keener: --------------\n";
-    print_matrix(K);
-    cout<<"-----------------Resultado: ------------------\n";
     vector<double> res(T, 0);
     vector<double> rand_start(T, 1); // Un vector arbitrario
     power_iteration(K, rand_start, res, 1000);
