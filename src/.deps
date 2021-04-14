@@ -1,3 +1,37 @@
 {
-    ".deps_version": 2
+    ".deps_version": 2,
+    "g++ -o ./tp ./utils.o ./wp.o ./tp1.o ./cmm.o ./keener.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "cmm.o": "input-07517110ca31c184de101822572a46aa",
+        "keener.o": "input-da317a414f612667ad06fddf26fd1868",
+        "tp": "input-096ad44bbba9317889b7cc98c351f28c",
+        "tp1.o": "input-2a22a26255a3c01a4131e0db0b3f0882",
+        "utils.o": "input-9917b15ef14ac328a3ac3394500c58d5",
+        "wp.o": "input-cc709ac99eb2dbeada186038adefdbf4"
+    },
+    "g++ -std=c++11 -O2 -c ./cmm.cpp -o ./cmm.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "cmm.cpp": "input-67594a8442a2ec35882a5a765d42eb1c",
+        "cmm.o": "input-07517110ca31c184de101822572a46aa"
+    },
+    "g++ -std=c++11 -O2 -c ./keener.cpp -o ./keener.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "keener.cpp": "input-c590e8c7c331d7039a3eecc1490bc4b3",
+        "keener.o": "input-da317a414f612667ad06fddf26fd1868"
+    },
+    "g++ -std=c++11 -O2 -c ./tp1.cpp -o ./tp1.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "tp1.cpp": "input-6b49c3c1dd014dcb906159800bb4a053",
+        "tp1.o": "input-2a22a26255a3c01a4131e0db0b3f0882"
+    },
+    "g++ -std=c++11 -O2 -c ./utils.cpp -o ./utils.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "utils.cpp": "input-486afeb953f303fd08ee9e5fda8336a9",
+        "utils.o": "input-9917b15ef14ac328a3ac3394500c58d5"
+    },
+    "g++ -std=c++11 -O2 -c ./wp.cpp -o ./wp.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d",
+        "wp.cpp": "input-cc7ca6d1f7bd710be521825305a98588",
+        "wp.o": "input-cc709ac99eb2dbeada186038adefdbf4"
+    }
 }
