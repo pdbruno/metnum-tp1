@@ -6,8 +6,8 @@ vector<double> wp(uint T, uint P, ifstream &inputFile) {
     // Skipping First Line
     getline(inputFile, line, '\n');
 
-    vector<int> W(T, 0);
-    vector<int> Q(T, 0);
+    vector<int> Wins(T, 0);
+    vector<int> GamesPlayed(T, 0);
 
     while (getline(inputFile, line,'\n')) {
         stringstream ss(line);
@@ -24,14 +24,14 @@ vector<double> wp(uint T, uint P, ifstream &inputFile) {
             loser = team1-1;
         }
 
-        W[winner] = W[winner] + 1; 
-        Q[winner] = Q[winner] + 1; 
-        Q[loser] = Q[loser] + 1; 
+        Wins[winner]++;
+        GamesPlayed[winner]++;
+        GamesPlayed[loser]++;
     }
 
     vector<double> r(T, 0);
     for (int i = 0; i < T; i++) {
-        r[i] = W[i]/Q[i];
+        r[i] = Wins[i]/GamesPlayed[i];
     }
     return r;
 }
