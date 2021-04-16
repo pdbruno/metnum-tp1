@@ -17,8 +17,8 @@ def cmm(input):
         C = np.identity(teams_qty) * 2
         B = np.array(np.zeros((teams_qty, 1)))
         for row in csv_reader:
-            i = int(row[1])-1
-            j = int(row[3])-1
+            i = row[1]-1 if row[2] > row[4] else row[3]-1
+            j = row[3]-1 if row[2] > row[4] else row[1]-1
             C[i, j] = C[i, j] - 1
             C[j, i] = C[j, i] - 1
             C[j, j] = C[j, j] + 1

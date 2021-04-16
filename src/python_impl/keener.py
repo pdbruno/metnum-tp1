@@ -6,10 +6,6 @@ import numpy as np
 from csv import reader
 
 
-DATASET_PATH = 1
-
-dataset = sys.argv[DATASET_PATH]
-
 def keener(input):
     K = None
 
@@ -50,7 +46,7 @@ def keener(input):
             K[i][j] = h((S[i][j] + 1) / (S[i][j] + S[j][i] + 2)) if J[i][j] else 0
 
 
-    return power_iteration(K, 10000)
+    return power_iteration(K, 1000)
 
 def h(x):
     return (0.5+ 0.5 * np.sign(x-0.5) * np.sqrt(abs(2*x-1)))

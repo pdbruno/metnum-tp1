@@ -31,13 +31,17 @@ methodsFn = {
   '1': wp,
   '2': keener,
 }
+file_object = open(methods[method] + '_errores_promedios.txt', 'a')
+
 for fname in listfiles(methods[method]):
     methodFn = methodsFn[method]
     expectedResult = methodFn(fname)
     outPath = fname.replace('.in', '.out')
     r_out = check_output(['../tp', fname, outPath, method], stdin=None, stderr=PIPE).decode().split('\n')[:-1]
-    print(np.array([float(num) for num in r_out]))
-    print(expectedResult)
-    break
-    expected_fname = fname.replace(".in", ".expected") 
-    np.savetxt(expected_fname, r)
+    cppResult = np.array([float(num) for num in r_out])
+    errorPromedio = np.mean(abs(cppResult - expectedResult))
+    # Append 'hello' at the end of file
+    file_object.write(f'{fname} {errorPromedio}\n')
+    # Close the file
+    #np.savetxt(expected_fname, r)
+file_object.close()
