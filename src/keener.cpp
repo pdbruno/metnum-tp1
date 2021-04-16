@@ -10,7 +10,6 @@ Generalizing Google’s PageRank to Rank National Football League Teams
 */
 vector<double> keener(uint T, uint P, ifstream &inputFile){
     vector<vector<double>> K(T, vector<double>(T,0)); //keener matrix
-    vector<double> rank(T,0);// vector r izquierdo
     vector<vector<double>> S(T, vector<double>(T,0)); // matriz de puntos anotados por i contra j
     vector<vector<bool>> J(T, vector<bool>(T, false)); // Jij=true si i y j jugaron
 

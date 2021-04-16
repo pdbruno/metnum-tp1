@@ -32,11 +32,9 @@ int main(int argc, char *argv[]) {
   inputFile >> T >> P;
 
   vector<double> r; // ranking
-  vector<double> indices(T, 0);
+  vector<int> indices(T, 0);
 
-  for (int i = 0; i < T; i++) {
-    indices[i] = i;
-  }
+
 
 
   switch (mode) {
@@ -45,6 +43,7 @@ int main(int argc, char *argv[]) {
     break;
   case 1:
     r = wp(T, P, inputFile);
+    break;
   case 2:
     r = keener(T, P, inputFile);
     break;
@@ -55,25 +54,30 @@ int main(int argc, char *argv[]) {
   ofstream outputFile;
   outputFile.open(output);
 
-  write_vector(r, outputFile);
+  //write_vector(r, outputFile);
   print_vector(r);
 
-  int i, key, keyIndices, j;
+  for (int i = 0; i < T; i++) {
+    indices[i] = i;
+  }
+
+  int i, keyIndices, j;
+  double key;
   for (i = 1; i < T; i++) {
     key = r[i];
-    keyIndices = r[i];
+    keyIndices = indices[i];
     j = i - 1;
 
-    /* Move elements of arr[0..i-1], that are
-    greater than key, to one position ahead
-    of their current position */
     while (j >= 0 && r[j] > key) {
       r[j + 1] = r[j];
-      r[j + 1] = indices[j];
+      indices[j + 1] = indices[j];
       j = j - 1;
     }
-    indices[j + 1] = key;
+    r[j + 1] = key;
+    indices[j + 1] = keyIndices;
   }
+
+  write_vector(r, indices, outputFile);
 
 
   outputFile.close();

@@ -41,6 +41,11 @@ void print_vector (vector<double> &v){
         printf("%f\n", v[i]);
     }
 }
+void print_vector (vector<int> &v){
+    for(uint i = 0; i < v.size(); i++){
+        printf("%d\n", v[i]);
+    }
+}
 
 /**
  * Escribe en un archivo de salida un vector.
@@ -49,8 +54,8 @@ void print_vector (vector<double> &v){
  * @param v Vector a imprimt
  * @param output Archivo de salida
  */
-void write_vector (vector<double> &v, ofstream &output){
+void write_vector (vector<double> &v, vector<int> &indices, ofstream &output){
     for (uint i = 0; i < v.size(); i++){
-        output << setprecision(14) << v[i] << "\n";
+        output << "equipo: " << indices[i] <<", rating: " <<setprecision(14) << v[i] << "\n";
     }
 }

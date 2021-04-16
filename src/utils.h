@@ -21,6 +21,7 @@ void print_matrix (vector<vector<double > > &A);
  * @param v vector
  */
 void print_vector (vector<double> &v);
+void print_vector (vector<int> &v);
 
 /**
  * Escribe en un archivo de salida un vector.
@@ -29,4 +30,4 @@ void print_vector (vector<double> &v);
  * @param v Vector a imprimt
  * @param output Archivo de salida
  */
-void write_vector (vector<double> &v, ofstream &output);
+void write_vector (vector<double> &v, vector<int> &indices, ofstream &output);

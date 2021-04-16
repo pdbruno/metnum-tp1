@@ -42,5 +42,11 @@ def addTest(cls, inputPath, expectedPath, outputPath):
 
 
 # Para cada archivo .in en la carpeta tests o cualquier subcarpeta, registra un nuevo test dinamicamente, verificando que la salida tenga el mismo contenido que el archivo con igual nombre pero extension .expected
-for fname in listfiles('tests', '*.in'):
+methods = {
+  '0': 'cmm',
+  '1': 'wp',
+  '2': 'keener',
+}
+
+for fname in listfiles(f'tests/{methods[settings.extraParams[0]]}', '*.in'):
   addTest(Tp1TestCase, fname, fname.replace(".in", ".expected"), fname.replace(".in", ".out"))
