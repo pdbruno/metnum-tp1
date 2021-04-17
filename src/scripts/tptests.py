@@ -27,12 +27,8 @@ class Tp1TestCase(unittest.TestCase):
       actual = [float(x.strip()) for x in factual.readlines() if len(x.strip()) > 0]
 
     self.assertEqual(len(expected), len(actual), "Se esperaban {0} valores en la solucion pero se encontraron {1}".format(len(expected), len(actual)))
-    # promErr = np.sum(abs(actual - expected)/actual.size())
-    values = []
     for index, (a, e) in enumerate(zip(actual, expected)):
-      values.append(abs(a - e))
-      # self.assertAlmostEqual(a, e, delta=0.0, msg="ERROR promedio: {3}; Se esperaba {0} en la linea {1} pero se encontro {2}".format(e,index+1,a, e-a))
-    print(np.mean(values))
+      self.assertAlmostEqual(a, e, delta=0.0001, msg="ERROR promedio: {3}; Se esperaba {0} en la linea {1} pero se encontro {2}".format(e,index+1,a, e-a))
 
 def addTest(cls, inputPath, expectedPath, outputPath):
   """Registra un test nuevo dinamicamente"""

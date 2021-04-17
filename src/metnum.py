@@ -2,6 +2,7 @@
 from scripts.fabricate import *
 from scripts.settings import *
 from scripts.utils import listfiles
+from scripts.error_compare import error
 from sys import argv
 
 # Acciones
@@ -25,5 +26,9 @@ def test():
   build()
   import unittest
   unittest.main(module='scripts.tptests', exit=False, argv=argv[:1], verbosity=3)
+
+def error_compare():
+  build()
+  error()
 
 main()
