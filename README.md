@@ -45,15 +45,16 @@ comparar los rankings generados por los 3 metodos implementados.
 ### Formato output
 
 Este modo 5 escribira en el archivo de salida indicado algo de la siguiente forma:
-CON CMM
-equipo: -, rating: -
-...
-CON WP
-equipo: -, rating: -
-...
-CON KEENER
-equipo: -, rating: -
-...
+
+CON CMM  
+equipo: -, rating: -  
+...  
+CON WP  
+equipo: -, rating: -  
+...  
+CON KEENER  
+equipo: -, rating: -  
+...  
 
 De esta forma podemos facilmente comparar el ranking generado por cada metodo viendo en que posicion quedo cada equipo.
 
@@ -68,10 +69,7 @@ Cada uno de los siguientes expirmentos esta explicado en el informe.
 | Ganador Optimizado para CMM | ganadorOptimizado.in |
 | Goles distribuidos vs acumulados | golesDistribuidosVsAcumulados.in |
 | Iguales ganados, distintos perdidos, goles distintos | igualGanados_distintosPerdidos_golesDistintos.in |
-| Iguales ganados, iguales perdidos, goles distintos | igualGanados_distintosPerdidos_golesDistintos.in |
-
-
-
+| Iguales ganados, iguales perdidos, goles distintos | igualGanados_distintosPerdidos_golesDistintos.in |  
 
 ### Cuantitativo
 
