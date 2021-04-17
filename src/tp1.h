@@ -9,3 +9,5 @@
 #include <map>
 #include "utils.h"
 #include <sstream>
+
+void sort(vector<double> &r, vector<int> &indices);

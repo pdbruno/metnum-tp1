@@ -3,6 +3,7 @@
         "*.asm": "asm",
         "iosfwd": "cpp",
         "iomanip": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "fstream": "cpp"
     }
 }

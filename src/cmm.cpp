@@ -44,6 +44,7 @@ vector<double> cmm(uint T, uint P, ifstream &inputFile)
     }
 
     eliminacion_gaussiana(C, B);
+    print_matrix(C);
     vector<double> r(T, 0);
     backward_substitution(C, r, B);
     return r;

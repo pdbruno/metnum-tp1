@@ -17,8 +17,9 @@ def cmm(input):
         C = np.identity(teams_qty) * 2
         B = np.array(np.zeros((teams_qty, 1)))
         for row in csv_reader:
-            i = row[1]-1 if row[2] > row[4] else row[3]-1
-            j = row[3]-1 if row[2] > row[4] else row[1]-1
+            num_row = [int(num) for num in row]
+            i = num_row[1]-1 if num_row[2] > num_row[4] else num_row[3]-1
+            j = num_row[3]-1 if num_row[2] > num_row[4] else num_row[1]-1
             C[i, j] = C[i, j] - 1
             C[j, i] = C[j, i] - 1
             C[j, j] = C[j, j] + 1
@@ -27,6 +28,8 @@ def cmm(input):
             B[j] = B[j] - 1
 
         B = (B / 2) + 1
+        print(C)
+        print(B)
 
     return np.linalg.solve(C, B)
 

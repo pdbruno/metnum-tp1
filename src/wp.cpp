@@ -4,7 +4,6 @@ using namespace std;
 
 vector<double> wp(uint T, uint P, ifstream &inputFile) {
     string line;
-    // Skipping First Line
     getline(inputFile, line, '\n');
 
     vector<int> Wins(T, 0);
@@ -34,6 +33,6 @@ vector<double> wp(uint T, uint P, ifstream &inputFile) {
 
     for (int i = 0; i < T; i++) {
         r[i] = (double)Wins[i]/(double)GamesPlayed[i];
-    }
+    }    
     return r;
 }
