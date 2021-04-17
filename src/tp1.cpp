@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
   char *output = argv[2];
 
   // lectura del input
-  ifstream inputFile;
-  inputFile.open(input);
+  ifstream input_file;
+  input_file.open(input);
 
-  if (!inputFile.is_open())
+  if (!input_file.is_open())
   {
     printf("Archivo de entrada invalido.\n");
     return 1;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
   // T: cantidad de equipos
   // P: cantidad de partidos
   uint T, P;
-  inputFile >> T >> P;
+  input_file >> T >> P;
 
   vector<double> r; // ranking
   vector<int> indices(T, 0);
@@ -34,91 +34,77 @@ int main(int argc, char *argv[])
   switch (mode)
   {
   case 0:
-    r = cmm(T, P, inputFile);
+    r = cmm(T, P, input_file);
     break;
   case 1:
-    r = wp(T, P, inputFile);
+    r = wp(T, P, input_file);
     break;
   case 2:
-    r = keener(T, P, inputFile);
+    r = keener(T, P, input_file);
     break;
   case 3:
-    vector<double> rCMM;       // ranking
-    vector<int> indicesCMM(T, 0);    // ranking
-    vector<double> rWP;        // ranking
-    vector<int> indicesWP(T, 0);     // ranking
-    vector<double> rKEENER;    // ranking
-    vector<int> indicesKEENER(T, 0); // ranking
-    for (int i = 0; i < T; i++)
-    {
-      indicesCMM[i] = i;
-      indicesWP[i] = i;
-      indicesKEENER[i] = i;
-    }
-
-    ifstream inputFile2;
-    ifstream inputFile3;
-
-    rCMM = cmm(T, P, inputFile);
-    inputFile.close();
-
-    inputFile2.open(input);
-    rWP = wp(T, P, inputFile2);
-    inputFile2.close();
-
-    inputFile3.open(input);
-    rKEENER = keener(T, P, inputFile3);
-    inputFile3.close();
-
-    sort(rCMM, indicesCMM);
-    sort(rWP, indicesWP);
-    sort(rKEENER, indicesKEENER);
-
-    ofstream outputFile;
-    outputFile.open(output);
-    outputFile << "CON CMM" << '\n';
-    write_vector(rCMM, indicesCMM, outputFile);
-    outputFile << "CON WP" << '\n';
-    write_vector(rWP, indicesWP, outputFile);
-
-    outputFile << "CON KEENER" << '\n';
-    write_vector(rKEENER, indicesKEENER, outputFile);
-
-    outputFile.close();
-    
+    r = cmm_cholesky(T, P, input_file);
+    break;
+  case 4:
+    ranking_compare(T, P, input, output);
+    input_file.close();
     return 0;
   }
 
-
-  ofstream outputFile;
-  outputFile.open(output);
+  input_file.close();
+  ofstream output_file;
+  output_file.open(output);
 
   print_vector(r);
-  //write_vector(r, outputFile);
-  write_vector(r, indices, outputFile);
+  write_vector(r, output_file);
 
-  outputFile.close();
+  output_file.close();
   return 0;
 }
 
-
-void sort(vector<double>& r, vector<int>& indices)
+void ranking_compare(uint T, uint P, char *input, char *output)
 {
-  int i, keyIndices, j;
-  double key;
-  for (i = 1; i < r.size(); i++)
-  {
-    key = r[i];
-    keyIndices = indices[i];
-    j = i - 1;
-
-    while (j >= 0 && r[j] > key)
+    vector<double> r_cmm;       // ranking
+    vector<int> indices_cmm(T, 0);    // ranking
+    vector<double> r_wp;        // ranking
+    vector<int> indices_wp(T, 0);     // ranking
+    vector<double> r_keener;    // ranking
+    vector<int> indices_keener(T, 0); // ranking
+    for (int i = 0; i < T; i++)
     {
-      r[j + 1] = r[j];
-      indices[j + 1] = indices[j];
-      j = j - 1;
+      indices_cmm[i] = i;
+      indices_wp[i] = i;
+      indices_keener[i] = i;
     }
-    r[j + 1] = key;
-    indices[j + 1] = keyIndices;
-  }
+
+    ifstream input_file;
+    ifstream input_file2;
+    ifstream input_file3;
+
+    input_file.open(input);
+    r_cmm = cmm(T, P, input_file);
+    input_file.close();
+
+    input_file2.open(input);
+    r_wp = wp(T, P, input_file2);
+    input_file2.close();
+
+    input_file3.open(input);
+    r_keener = keener(T, P, input_file3);
+    input_file3.close();
+
+    sort(r_cmm, indices_cmm);
+    sort(r_wp, indices_wp);
+    sort(r_keener, indices_keener);
+
+    ofstream output_file;
+    output_file.open(output);
+    output_file << "CON CMM" << '\n';
+    write_vector(r_cmm, indices_cmm, output_file);
+    output_file << "CON WP" << '\n';
+    write_vector(r_wp, indices_wp, output_file);
+    output_file << "CON KEENER" << '\n';
+    write_vector(r_keener, indices_keener, output_file);
+
+    output_file.close();
 }

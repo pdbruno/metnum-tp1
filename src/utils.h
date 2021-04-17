@@ -31,3 +31,4 @@ void print_vector (vector<int> &v);
  * @param output Archivo de salida
  */
 void write_vector (vector<double> &v, vector<int> &indices, ofstream &output);
+void write_vector (vector<double> &v, ofstream &output);

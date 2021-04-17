@@ -1,3 +1,5 @@
+using namespace std;
+
 #include "keener.h"
 
 /*
@@ -51,10 +53,10 @@ vector<double> keener(uint T, uint P, ifstream &inputFile){
             K[i][j] = h(   g(   S[i][j], S[j][i]   ), J[i][j]   );
         }
     }
+
     vector<double> res(T, 0);
     vector<double> rand_start(T, 1); // Un vector arbitrario
     power_iteration(K, rand_start, res, 1000);
-
     return res;
 
 }
@@ -85,24 +87,16 @@ double g(const double Sij,const double Sji){
     return numerador/denominador;
 }
 
-void power_iteration(vector<vector<double>> &A, vector<double> &rand_start, 
-vector<double> &res, int cant_iter){
+void power_iteration(vector<vector<double>> &A, vector<double> &rand_start, vector<double> &res, int cant_iter)
+{
     vector<double> b_i = rand_start;
 
     for (int i = 0; i < cant_iter; i++) {
-        producto_matricial_keener(A, b_i, res);
+        producto_matricial(A, b_i, res);
         double norm = norma(res);
         for(int k = 0; k< res.size(); k++){
             res[k] = res[k] / norm;
             b_i[k] = res[k];
-        }
-    }
-}
-
-void producto_matricial_keener(vector<vector<double>> &A, vector<double> &x, vector<double> &b) {
-    for (int i = 0; i < A.size(); i++) {
-        for (int j = 0; j < A.size(); j++) {
-            b[i] += A[i][j] * x[j];
         }
     }
 }

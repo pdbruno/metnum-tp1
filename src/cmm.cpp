@@ -44,7 +44,6 @@ vector<double> cmm(uint T, uint P, ifstream &inputFile)
     }
 
     eliminacion_gaussiana(C, B);
-    print_matrix(C);
     vector<double> r(T, 0);
     backward_substitution(C, r, B);
     return r;
@@ -64,61 +63,4 @@ void eliminacion_gaussiana(vector<vector<double>> &A, vector<double> &B)
             B[j] = B[j] - m * B[i];
         }
     }
-}
-
-void backward_substitution(const vector<vector<double>> &A, vector<double> &x, const vector<double> &b)
-{
-    for (int i = A.size() - 1; i >= 0; i--)
-    {
-        double acc = kahanSum(A[i], x);
-        /* double acc = 0;
-        for (int j = i + 1; j < A.size(); j++)
-        {
-            acc += A[i][j] * x[j];
-        } */
-        x[i] = (b[i] - acc) / A[i][i];
-    }
-}
-
-double sumaLoca(const vector<double> &A, vector<double> &x, int start, int end)
-{
-    if (start == end - 1)
-    {
-        return A[start] * x[start];
-    }
-    else if (start >= end)
-    {
-        return 0;
-    }
-    else
-    {
-        int mid = (end + start) / 2;
-        return sumaLoca(A, x, start, mid) + sumaLoca(A, x, mid, end);
-    }
-}
-
-void producto_matricial(vector<vector<double>> &A, vector<double> &x, vector<double> &b)
-{
-    for (int i = 0; i < A.size(); i++)
-    {
-        for (int j = 0; j < A.size(); j++)
-        {
-            b[i] = A[i][j] * x[j];
-        }
-    }
-}
-
-double kahanSum(const vector<double> &A, vector<double> &x)
-{
-    double sum = 0.0;
-    double c = 0.0;
-
-    for (int i = 0; i < A.size(); i++)
-    {
-        double y = (A[i] * x[i]) - c;
-        double t = sum + y;
-        c = (t - sum) - y;
-        sum = t;
-    }
-    return sum;
 }

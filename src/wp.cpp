@@ -1,6 +1,5 @@
 using namespace std;
 #include "wp.h"
-#include "utils.h"
 
 vector<double> wp(uint T, uint P, ifstream &inputFile) {
     string line;

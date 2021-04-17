@@ -1,15 +1,14 @@
-#include<vector>
+#include <vector>
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <math.h>
+#include "math_utils.h"
 
-using namespace std;
 vector<double> keener(uint T, uint P, ifstream &inputFile);
 
 double h(double x, bool jugaron);
 double signo(double num);
 double g(const double Sij,const double Sji);
 void power_iteration(vector<vector<double>> &A, vector<double> &rand_start, vector<double> &res, int cant_iter);
-void producto_matricial_keener(vector<vector<double>> &A,vector<double> &x, vector<double> &b);
 double norma(vector<double> &x);
