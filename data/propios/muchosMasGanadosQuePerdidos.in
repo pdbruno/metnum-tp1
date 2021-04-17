@@ -1,0 +1,16 @@
+idea: testear que efectivamente cuando hay un equipo con una banda de ganados pero tambien muchos perdidos, y en wp sale campeon por sobre uno que nunca perdio pero gano un poco menos
+testear que esto no pasa en cmm
+
+3 10
+1 1 10 2 8
+1 2 10 1 8
+1 3 16 1 3
+1 1 10 2 7
+1 3 12 2 5
+1 2 5 1 0 
+1 1 3 2 0
+1 1 4 2 1
+1 3 5 1 0
+1 2 4 1 3
+
+aca 1 gano 4 veces y perdio 5, 3 gano 3 y perdio 0
