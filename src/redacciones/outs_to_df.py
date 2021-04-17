@@ -6,9 +6,7 @@ import sys
 #../outs/equipo_gano_uno_jugo_uno.out
 
 io = open(sys.argv[1], "r")
-rankings = {
-
-}
+rankings = {}
 
 def leer_metodo_utilizado(fila):
     if fila[4] == "C":
@@ -38,7 +36,6 @@ def tomar_puntaje(fila):
 def read_out(io, n_call, fila):
     # escribe en el diccionario rankings todos los rankings generados, 
     # luego sera pasado a DF donde cada metodo tendra su columna
-    print("comienza read")
     if((fila != '') and (fila[0]=="C")):
     
         equipos = []
@@ -46,15 +43,13 @@ def read_out(io, n_call, fila):
         metodo = leer_metodo_utilizado(fila)
         fila = io.readline()
         while((fila != '') and (fila[0] == "e")):
-            print("comienza while")
             equipos.append(tomar_equipo(fila))
-            puntajes.append(tomar_puntaje(fila))
+            puntajes.append(f'{tomar_equipo(fila)}({tomar_puntaje(fila)})')
             fila = io.readline()
         
 
-        ranking = pd.Series(puntajes, index=equipos)
+        ranking = pd.Series(puntajes)
         rankings[metodo] = ranking
-        print(ranking)
         # hacemos otra llamada para tomar los otros metodos
         n_call = n_call + 1
         
@@ -63,11 +58,13 @@ def read_out(io, n_call, fila):
 
 
 read_out(io,0,io.readline())
+read_out(io,0,io.readline())
 res = pd.DataFrame(rankings)
-print(res)
+
+print(res.to_latex(index=False))
 
 
 
-print(rankings)
+# print(rankings)
 
-res.to_csv(sys.argv[1][8:]+"_df.csv")
+# res.to_csv(sys.argv[1][8:]+"_df.csv")
