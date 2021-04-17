@@ -17,6 +17,7 @@ rects2 = ax.bar(x + width/2, cholesky, width, label='Cholesky')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Error promedio entre tests e implementación C++')
+ax.set_xlabel('Tamaño de la entrada')
 ax.set_title('Crecimiento del error numérico en función de la cantiadad de equipos: EG vs Cholesky')
 ax.set_xticks(x)
 ax.set_xticklabels(labels)
