@@ -1,0 +1,12 @@
+CON CMM
+equipo: 0, rating: 0.6551724137931
+equipo: 1, rating: 0.63793103448276
+equipo: 2, rating: 0.20689655172414
+CON WP
+equipo: 1, rating: 1
+equipo: 0, rating: 1
+equipo: 2, rating: 0
+CON KEENER
+equipo: 1, rating: 0.70422630483317
+equipo: 0, rating: 0.70422630483317
+equipo: 2, rating: 0.090169968182512
