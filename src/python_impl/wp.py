@@ -9,7 +9,6 @@ from csv import reader
 
 def wp(input):
     dataframe = pd.read_csv(input, sep=' ', skiprows=1, header=None)
-
     # cacona
     dataframe_inutil = pd.read_csv(input, sep=' ')
     teams_qty = int(dataframe_inutil.keys()[0])

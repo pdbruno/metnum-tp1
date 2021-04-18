@@ -44,7 +44,7 @@ methods = {
 }
 
 def error():
-    nombre_metodo = methods[settings.extraParams[0]] if settings.extraParams[0] != 3 else 'cmm con cholesky'
+    nombre_metodo = methods[settings.extraParams[0]] if settings.extraParams[0] != '3' else 'cmm con cholesky'
     for fname in listfiles(f'tests/{methods[settings.extraParams[0]]}', '*.in'):
         error = ErrorCompare().addComparison(fname, fname.replace(".in", ".expected"), fname.replace(".in", ".out"))
         print(f'{fname}: El promedio de error calculado entre el expected y la implemetacion de C++ para el metodo {nombre_metodo} es {error}')

@@ -1,9 +1,0 @@
-../tests/wp/test_completos/test_completo_10_1.in 3.8888888889143656e-07
-../tests/wp/test_completos/test_completo_100_4.in 2.527526338830244e-07
-../tests/wp/test_completos/test_completo_100_8.in 2.6163419879987606e-07
-../tests/wp/test_completos/test_completo_1000_2.in 2.4598370352751917e-07
-../tests/wp/test_completos/test_completo_10_1.in 3.8888888889143656e-07
-../tests/wp/test_completos/test_completo_100_4.in 2.527526338830244e-07
-../tests/wp/test_completos/test_completo_100_8.in 2.6163419879987606e-07
-../tests/wp/test_completos/test_completo_1000_2.in 2.4598370352751917e-07
-../tests/wp/test_completos/test_completo_1000_8.in 2.4362343347100746e-07

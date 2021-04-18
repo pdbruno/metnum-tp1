@@ -42,6 +42,7 @@ methods = {
   '0': 'cmm',
   '1': 'wp',
   '2': 'keener',
+  '3': 'cmm'
 }
 
 for fname in listfiles(f'tests/{methods[settings.extraParams[0]]}', '*.in'):

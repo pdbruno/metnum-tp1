@@ -82,3 +82,19 @@ Este script va a calcular el error promedio entre el contenido de los archivos e
 Este metodo sera cual sea seteado manualmente en el archivo de `scripts/settings`
 
 - Resultado: el error sera mostrado por consola
+
+### Tests
+
+Los tests se pueden ejecutar para todo modo menos el 5.
+
+```
+python metnum.py test
+```
+
+Donde se utilizara el metodo seteado en `scripts/settings`.
+Los expected utilizados para WP y Keener fueron generados con:
+
+```
+cd python_impl/
+python expected_generator.py
+```
