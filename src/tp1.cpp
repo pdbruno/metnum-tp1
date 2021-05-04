@@ -97,8 +97,28 @@ void ranking_compare(uint T, uint P, char *input, char *output)
     sort(r_wp, indices_wp);
     sort(r_keener, indices_keener);
 
+    vector<int> caca_cmm(T, 0); // ranking
+    vector<int> caca_wp(T, 0); // ranking
+    vector<int> caca_keener(T, 0); // ranking
+
+    for (int i = 0; i < T; i++) {
+      caca_cmm[indices_cmm[i]] = i;
+      caca_keener[indices_keener[i]] = i;
+    }
+
+    vector<double> diferencia(T, 0); // ranking
+    for (int i = 0; i < T; i++) {
+      diferencia[i] = (double)caca_cmm[i] - caca_keener[i];
+      if (diferencia[i] < 0) {
+        diferencia[i] = -1 * diferencia[i];
+      }
+    }
+
+
+
     ofstream output_file;
     output_file.open(output);
+    write_vector(diferencia, output_file);
     output_file << "CON CMM" << '\n';
     write_vector(r_cmm, indices_cmm, output_file);
     output_file << "CON WP" << '\n';
