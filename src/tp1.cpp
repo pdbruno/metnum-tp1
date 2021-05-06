@@ -103,12 +103,12 @@ void ranking_compare(uint T, uint P, char *input, char *output)
 
     for (int i = 0; i < T; i++) {
       caca_cmm[indices_cmm[i]] = i;
-      caca_keener[indices_keener[i]] = i;
+      caca_wp[indices_wp[i]] = i;
     }
 
     vector<double> diferencia(T, 0); // ranking
     for (int i = 0; i < T; i++) {
-      diferencia[i] = (double)caca_cmm[i] - caca_keener[i];
+      diferencia[i] = (double)caca_cmm[i] - caca_wp[i];
       if (diferencia[i] < 0) {
         diferencia[i] = -1 * diferencia[i];
       }
