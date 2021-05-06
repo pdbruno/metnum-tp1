@@ -23,6 +23,27 @@ void sort(vector<double>& r, vector<int>& indices)
   }
 }
 
+void sort(vector<double>& r, vector<double>& indices)
+{
+  int i, keyIndices, j;
+  double key;
+  for (i = 1; i < r.size(); i++)
+  {
+    key = r[i];
+    keyIndices = indices[i];
+    j = i - 1;
+
+    while (j >= 0 && r[j] > key)
+    {
+      r[j + 1] = r[j];
+      indices[j + 1] = indices[j];
+      j = j - 1;
+    }
+    r[j + 1] = key;
+    indices[j + 1] = keyIndices;
+  }
+}
+
 void backward_substitution(const vector<vector<double>> &A, vector<double> &x, const vector<double> &b)
 {
     for (int i = A.size() - 1; i >= 0; i--)

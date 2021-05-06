@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
 void ranking_compare(uint T, uint P, char *input, char *output)
 {
     vector<double> r_cmm;       // ranking
+    vector<double> r_cmm_2;       // ranking
     vector<int> indices_cmm(T, 0);    // ranking
     vector<double> r_wp;        // ranking
     vector<int> indices_wp(T, 0);     // ranking
@@ -87,6 +88,10 @@ void ranking_compare(uint T, uint P, char *input, char *output)
 
     input_file2.open(input);
     r_wp = wp(T, P, input_file2);
+        input_file2.close();
+    input_file2.open(input);
+
+    r_cmm_2 = wp(T, P, input_file2);
     input_file2.close();
 
     input_file3.open(input);
@@ -97,22 +102,23 @@ void ranking_compare(uint T, uint P, char *input, char *output)
     sort(r_wp, indices_wp);
     sort(r_keener, indices_keener);
 
-    vector<int> caca_cmm(T, 0); // ranking
-    vector<int> caca_wp(T, 0); // ranking
-    vector<int> caca_keener(T, 0); // ranking
+    vector<int> diferencias_cmm(T, 0); // ranking
+    vector<int> diferencias_wp(T, 0); // ranking
+    vector<int> diferencias_keener(T, 0); // ranking
 
     for (int i = 0; i < T; i++) {
-      caca_cmm[indices_cmm[i]] = i;
-      caca_wp[indices_wp[i]] = i;
+      diferencias_wp[indices_wp[i]] = i;
+      diferencias_keener[indices_keener[i]] = i;
     }
 
     vector<double> diferencia(T, 0); // ranking
     for (int i = 0; i < T; i++) {
-      diferencia[i] = (double)caca_cmm[i] - caca_wp[i];
+      diferencia[i] = (double)diferencias_wp[i] - diferencias_keener[i];
       if (diferencia[i] < 0) {
         diferencia[i] = -1 * diferencia[i];
       }
     }
+    sort(r_cmm_2, diferencia);
 
 
 
